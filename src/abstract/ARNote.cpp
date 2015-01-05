@@ -77,7 +77,7 @@ ARMusicalObject * ARNote::Copy() const
 	return new ARNote(*this);
 }
 
-static int round (float value) {
+static int round_to_int (float value) {
 	int integer = int(value);
 	float remain = value - integer;
 	return (remain < 0.5) ? integer : integer + 1;
@@ -85,7 +85,7 @@ static int round (float value) {
 
 int	ARNote::detune2Quarters(float detune)
 {
-	return round(detune*2);	// detune in rounded quarter tones
+    return round_to_int(detune * 2);	// detune in rounded quarter tones
 }
 
 void ARNote::browse(TimeUnwrap& mapper) const
